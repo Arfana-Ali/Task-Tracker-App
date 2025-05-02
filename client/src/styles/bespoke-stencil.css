@@ -1,0 +1,84 @@
+@font-face {
+  font-family: "Bespoke Stencil";
+  src: url("/fonts/bespoke-stencil/BespokeStencil-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Bespoke Stencil";
+  src: url("/fonts/bespoke-stencil/BespokeStencil-LightItalic.woff2") format("woff2");
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Bespoke Stencil";
+  src: url("/fonts/bespoke-stencil/BespokeStencil-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Bespoke Stencil";
+  src: url("/fonts/bespoke-stencil/BespokeStencil-Italic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Bespoke Stencil";
+  src: url("/fonts/bespoke-stencil/BespokeStencil-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Bespoke Stencil";
+  src: url("/fonts/bespoke-stencil/BespokeStencil-MediumItalic.woff2") format("woff2");
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Bespoke Stencil";
+  src: url("/fonts/bespoke-stencil/BespokeStencil-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Bespoke Stencil";
+  src: url("/fonts/bespoke-stencil/BespokeStencil-BoldItalic.woff2") format("woff2");
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Bespoke Stencil";
+  src: url("/fonts/bespoke-stencil/BespokeStencil-Extrabold.woff2") format("woff2");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Bespoke Stencil";
+  src: url("/fonts/bespoke-stencil/BespokeStencil-ExtraboldItalic.woff2") format("woff2");
+  font-weight: 800;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Bespoke Stencil Variable";
+  src: url("/fonts/bespoke-stencil/BespokeStencil-Variable.woff2") format("woff2");
+  font-weight: 300 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Bespoke Stencil Variable";
+  src: url("/fonts/bespoke-stencil/BespokeStencil-VariableItalic.woff2") format("woff2");
+  font-weight: 300 800;
+  font-style: italic;
+}
+
