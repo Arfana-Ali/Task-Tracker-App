@@ -58,7 +58,7 @@ const SignupForm = () => {
 
       // API call
       const response = await axios.post(
-        "http://localhost:5000/api/users/signup",
+       `${import.meta.env.VITE_API_URL}/api/users/signup`,
         formData,
         {
           withCredentials: true,
