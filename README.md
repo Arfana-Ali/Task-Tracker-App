@@ -1,5 +1,8 @@
 # Task-Tracker-App
 
+first step - signup
+second step - login
+third step - after login this will redirect to user dashboard
 https://task-tracker-app-taupe.vercel.app/
 
 Frontend – Task Tracker App (React + Vite)
