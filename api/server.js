@@ -12,7 +12,7 @@ const app = express()
 // CORS ko configure karenge
 app.use(
   cors({
-    origin: process.env.CORS_ENV, // frontend ka URL (e.g., http://localhost:5173)
+    origin: 'https://task-tracker-app-taupe.vercel.app', // frontend ka URL (e.g., http://localhost:5173)
     credentials: true, // Allow credentials like cookies
   }),
 )
