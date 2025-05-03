@@ -58,15 +58,13 @@ export const registerUser = asyncHandler(async (req, res) => {
       name: newUser.name,
       email: newUser.email,
       country: newUser.country,
-      role: newUser.role, // role response me assign kiya
+      role: newUser.role, 
       avatar: newUser.avatar,
     },
   });
 });
 
-// loginUser function will handle the /api/users/login (post method )
-// and in response it will give us refresh token , assess token , and
-// user details == {name, email, password }
+
 export const loginUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
   console.log("Email", email, "Password", password);
@@ -127,7 +125,7 @@ export const logoutUser = asyncHandler(async (req, res) => {
   });
 });
 
-// यूजर के टास्क्स पाएं
+
 export const getUserTasks = asyncHandler(async (req, res) => {
   const userId = req.params.userId;
 

@@ -2,7 +2,7 @@ import dotenv from "dotenv";
 import { v2 as cloudinary } from "cloudinary";
 import fs from "fs/promises";
 
-// Load environment variables from .env file
+
 dotenv.config();
 
 cloudinary.config({
@@ -25,13 +25,13 @@ const uploadOnCloudinary = async (localFilePath) => {
     });
 
     console.log("Cloudinary response:", response);
-    await fs.unlink(localFilePath); // Remove the local file after upload
+    await fs.unlink(localFilePath); 
     return response;
   } catch (error) {
     console.error("Error during Cloudinary upload:", error.message);
     console.error("Error details:", error);
     try {
-      await fs.unlink(localFilePath); // Clean up file if upload fails
+      await fs.unlink(localFilePath); 
     } catch (deleteError) {
       console.error(
         "Error deleting file after failed upload:",
