@@ -34,7 +34,7 @@ const userSchema = new Schema(
     },
     role: {
       type: String,
-      enum: ["user", "admin", "moderator"], // for future enhancement
+      enum: ["user", "admin", "moderator"], 
       default: "user",
     },
     avatar: {
@@ -45,7 +45,7 @@ const userSchema = new Schema(
       {
         type: Schema.Types.ObjectId,
         ref: "Project",
-        max: 4, // Max 4 projects allowed
+        max: 4, 
       },
     ],
   },
@@ -54,19 +54,19 @@ const userSchema = new Schema(
   }
 );
 
-// password  hash kiya user ko insert karne se pehle
+
 userSchema.pre("save", async function (next) {
   if (!this.isModified("password")) return next();
   this.password = await bcrypt.hash(this.password, 10);
   next();
 });
 
-// bcrypt libraby ke through password check kiya
+
 userSchema.methods.isPasswordCorrect = async function (password) {
   return await bcrypt.compare(password, this.password);
 };
 
-// access token genrate ke liye function
+
 userSchema.methods.generateAccessToken = function () {
   return jwt.sign(
     { _id: this._id, email: this.email, fullName: this.fullName },
@@ -75,7 +75,7 @@ userSchema.methods.generateAccessToken = function () {
   );
 };
 
-// generateToken ke liye function
+
 userSchema.methods.generateRefreshToken = function () {
   return jwt.sign({ _id: this._id }, process.env.REFRESH_TOKEN_SECRET, {
     expiresIn: process.env.REFRESH_TOKEN_EXPIRY,

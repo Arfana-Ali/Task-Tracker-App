@@ -34,11 +34,10 @@ required: true,
 },
 },
 {
-timestamps: true // createdAt और updatedAt automatically manage honge
+timestamps: true 
 }
 );
 
-// Task complete hone par completedAt set karne ka pre-save hook
 taskSchema.pre("save", function(next) {
 if(this.isModified("status") && this.status === "completed" && !this.completedAt) {
 this.completedAt = new Date();
