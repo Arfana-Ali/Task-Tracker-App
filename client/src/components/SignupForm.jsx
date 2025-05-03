@@ -515,8 +515,8 @@ const SignupForm = () => {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center relative bg-gray-100">
-      <Card className="relative z-10 w-full max-w-md bg-white">
+    <div className="flex items-center justify-center min-h-screen bg-gray-100">
+      <Card className="w-full max-w-md shadow-lg">
         <CardHeader>
           <CardTitle
             className={`${theme === "dark" ? "text-center text-white text-2xl font-bold" : "text-center text-primary-gradient text-2xl font-bold"}`}
