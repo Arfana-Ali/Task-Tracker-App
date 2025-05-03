@@ -1,17 +1,35 @@
+"use client";
 
-"use client"
-
-import { useForm } from "react-hook-form"
-import axios from "axios"
-import { zodResolver } from "@hookform/resolvers/zod"
-import { signupSchema } from "@/schemas/signupSchema" // Importing the schema
-import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from "@/components/ui/form"
-import { Input } from "@/components/ui/input"
-import { Button } from "@/components/ui/button"
-import { Card, CardHeader, CardTitle, CardContent, CardFooter } from "@/components/ui/card"
-import { useNavigate } from "react-router-dom"
-import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select"
-import { toast } from "sonner"
+import { useForm } from "react-hook-form";
+import axios from "axios";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { signupSchema } from "@/schemas/signupSchema"; // Importing the schema
+import {
+  Form,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormControl,
+  FormMessage,
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardContent,
+  CardFooter,
+} from "@/components/ui/card";
+import { useNavigate } from "react-router-dom";
+import {
+  Select,
+  SelectTrigger,
+  SelectValue,
+  SelectContent,
+  SelectItem,
+} from "@/components/ui/select";
+import { toast } from "sonner";
 
 const SignupForm = () => {
   // zod functionaility
@@ -24,38 +42,42 @@ const SignupForm = () => {
       country: "",
       avatar: null,
     },
-  })
+  });
 
-  const navigate = useNavigate() // React Router hook
+  const navigate = useNavigate(); // React Router hook
 
   const onSubmit = async (data) => {
-    console.log(data)
+    console.log(data);
     try {
-      const formData = new FormData()
-      formData.append("name", data.name)
-      formData.append("email", data.email)
-      formData.append("password", data.password)
-      formData.append("country", data.country)
-      formData.append("avatar", data.avatar) // Add the file
+      const formData = new FormData();
+      formData.append("name", data.name);
+      formData.append("email", data.email);
+      formData.append("password", data.password);
+      formData.append("country", data.country);
+      formData.append("avatar", data.avatar); // Add the file
 
       // API call
-      const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/users/signup`, formData, {
-        withCredentials: true,
-        headers: { "Content-Type": "multipart/form-data" },
-      })
-      console.log("Form Submitted:", response.data)
-      form.reset()
-      navigate("/login")
-      toast.success(`Sign Up Successfull for ${data.name}`)
+      const response = await axios.post(
+       `${import.meta.env.VITE_API_URL}/api/users/signup`,
+        formData,
+        {
+          withCredentials: true,
+          headers: { "Content-Type": "multipart/form-data" },
+        }
+      );
+      console.log("Form Submitted:", response.data);
+      form.reset();
+      navigate("/login");
+      toast.success(`Sign Up Successfull for ${data.name}`);
     } catch (error) {
-      console.error("Error submitting form:", error)
-      alert("An error occurred during signup. Please try again.")
+      console.error("Error submitting form:", error);
+      alert("An error occurred during signup. Please try again.");
     }
-  }
+  };
 
   return (
-    <div className="min-h-screen flex items-center justify-center relative bg-gray-100 dark:bg-gray-900">
-      <Card className="relative z-10 w-full max-w-md bg-white dark:bg-gray-800">
+    <div className="min-h-screen flex items-center justify-center relative bg-gray-100">
+      <Card className="relative z-10 w-full max-w-md bg-white">
         <CardHeader>
           <CardTitle className="text-center text-primary-gradient text-2xl font-bold">
             Welcome To Task Tracker
@@ -88,7 +110,11 @@ const SignupForm = () => {
                   <FormItem>
                     <FormLabel>Email</FormLabel>
                     <FormControl>
-                      <Input type="email" placeholder="Enter your email" {...field} />
+                      <Input
+                        type="email"
+                        placeholder="Enter your email"
+                        {...field}
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -103,7 +129,11 @@ const SignupForm = () => {
                   <FormItem>
                     <FormLabel>Password</FormLabel>
                     <FormControl>
-                      <Input type="password" placeholder="Enter your password" {...field} />
+                      <Input
+                        type="password"
+                        placeholder="Enter your password"
+                        {...field}
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -115,7 +145,10 @@ const SignupForm = () => {
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>Country</FormLabel>
-                    <Select onValueChange={field.onChange} defaultValue={field.value}>
+                    <Select
+                      onValueChange={field.onChange}
+                      defaultValue={field.value}
+                    >
                       <FormControl>
                         <SelectTrigger>
                           <SelectValue placeholder="Select your Country" />
@@ -127,7 +160,9 @@ const SignupForm = () => {
                         <SelectItem value="Algeria">Algeria</SelectItem>
                         <SelectItem value="Andorra">Andorra</SelectItem>
                         <SelectItem value="Angola">Angola</SelectItem>
-                        <SelectItem value="Antigua and Barbuda">Antigua and Barbuda</SelectItem>
+                        <SelectItem value="Antigua and Barbuda">
+                          Antigua and Barbuda
+                        </SelectItem>
                         <SelectItem value="Argentina">Argentina</SelectItem>
                         <SelectItem value="Armenia">Armenia</SelectItem>
                         <SelectItem value="Australia">Australia</SelectItem>
@@ -143,24 +178,32 @@ const SignupForm = () => {
                         <SelectItem value="Benin">Benin</SelectItem>
                         <SelectItem value="Bhutan">Bhutan</SelectItem>
                         <SelectItem value="Bolivia">Bolivia</SelectItem>
-                        <SelectItem value="Bosnia and Herzegovina">Bosnia and Herzegovina</SelectItem>
+                        <SelectItem value="Bosnia and Herzegovina">
+                          Bosnia and Herzegovina
+                        </SelectItem>
                         <SelectItem value="Botswana">Botswana</SelectItem>
                         <SelectItem value="Brazil">Brazil</SelectItem>
                         <SelectItem value="Brunei">Brunei</SelectItem>
                         <SelectItem value="Bulgaria">Bulgaria</SelectItem>
-                        <SelectItem value="Burkina Faso">Burkina Faso</SelectItem>
+                        <SelectItem value="Burkina Faso">
+                          Burkina Faso
+                        </SelectItem>
                         <SelectItem value="Burundi">Burundi</SelectItem>
                         <SelectItem value="Cabo Verde">Cabo Verde</SelectItem>
                         <SelectItem value="Cambodia">Cambodia</SelectItem>
                         <SelectItem value="Cameroon">Cameroon</SelectItem>
                         <SelectItem value="Canada">Canada</SelectItem>
-                        <SelectItem value="Central African Republic">Central African Republic</SelectItem>
+                        <SelectItem value="Central African Republic">
+                          Central African Republic
+                        </SelectItem>
                         <SelectItem value="Chad">Chad</SelectItem>
                         <SelectItem value="Chile">Chile</SelectItem>
                         <SelectItem value="China">China</SelectItem>
                         <SelectItem value="Colombia">Colombia</SelectItem>
                         <SelectItem value="Comoros">Comoros</SelectItem>
-                        <SelectItem value="Congo (Congo-Brazzaville)">Congo (Congo-Brazzaville)</SelectItem>
+                        <SelectItem value="Congo (Congo-Brazzaville)">
+                          Congo (Congo-Brazzaville)
+                        </SelectItem>
                         <SelectItem value="Costa Rica">Costa Rica</SelectItem>
                         <SelectItem value="Croatia">Croatia</SelectItem>
                         <SelectItem value="Cuba">Cuba</SelectItem>
@@ -172,11 +215,15 @@ const SignupForm = () => {
                         <SelectItem value="Denmark">Denmark</SelectItem>
                         <SelectItem value="Djibouti">Djibouti</SelectItem>
                         <SelectItem value="Dominica">Dominica</SelectItem>
-                        <SelectItem value="Dominican Republic">Dominican Republic</SelectItem>
+                        <SelectItem value="Dominican Republic">
+                          Dominican Republic
+                        </SelectItem>
                         <SelectItem value="Ecuador">Ecuador</SelectItem>
                         <SelectItem value="Egypt">Egypt</SelectItem>
                         <SelectItem value="El Salvador">El Salvador</SelectItem>
-                        <SelectItem value="Equatorial Guinea">Equatorial Guinea</SelectItem>
+                        <SelectItem value="Equatorial Guinea">
+                          Equatorial Guinea
+                        </SelectItem>
                         <SelectItem value="Eritrea">Eritrea</SelectItem>
                         <SelectItem value="Estonia">Estonia</SelectItem>
                         <SelectItem value="Eswatini">Eswatini</SelectItem>
@@ -193,7 +240,9 @@ const SignupForm = () => {
                         <SelectItem value="Grenada">Grenada</SelectItem>
                         <SelectItem value="Guatemala">Guatemala</SelectItem>
                         <SelectItem value="Guinea">Guinea</SelectItem>
-                        <SelectItem value="Guinea-Bissau">Guinea-Bissau</SelectItem>
+                        <SelectItem value="Guinea-Bissau">
+                          Guinea-Bissau
+                        </SelectItem>
                         <SelectItem value="Guyana">Guyana</SelectItem>
                         <SelectItem value="Haiti">Haiti</SelectItem>
                         <SelectItem value="Honduras">Honduras</SelectItem>
@@ -220,7 +269,9 @@ const SignupForm = () => {
                         <SelectItem value="Lesotho">Lesotho</SelectItem>
                         <SelectItem value="Liberia">Liberia</SelectItem>
                         <SelectItem value="Libya">Libya</SelectItem>
-                        <SelectItem value="Liechtenstein">Liechtenstein</SelectItem>
+                        <SelectItem value="Liechtenstein">
+                          Liechtenstein
+                        </SelectItem>
                         <SelectItem value="Lithuania">Lithuania</SelectItem>
                         <SelectItem value="Luxembourg">Luxembourg</SelectItem>
                         <SelectItem value="Madagascar">Madagascar</SelectItem>
@@ -229,7 +280,9 @@ const SignupForm = () => {
                         <SelectItem value="Maldives">Maldives</SelectItem>
                         <SelectItem value="Mali">Mali</SelectItem>
                         <SelectItem value="Malta">Malta</SelectItem>
-                        <SelectItem value="Marshall Islands">Marshall Islands</SelectItem>
+                        <SelectItem value="Marshall Islands">
+                          Marshall Islands
+                        </SelectItem>
                         <SelectItem value="Mauritania">Mauritania</SelectItem>
                         <SelectItem value="Mauritius">Mauritius</SelectItem>
                         <SelectItem value="Mexico">Mexico</SelectItem>
@@ -250,14 +303,18 @@ const SignupForm = () => {
                         <SelectItem value="Niger">Niger</SelectItem>
                         <SelectItem value="Nigeria">Nigeria</SelectItem>
                         <SelectItem value="North Korea">North Korea</SelectItem>
-                        <SelectItem value="North Macedonia">North Macedonia</SelectItem>
+                        <SelectItem value="North Macedonia">
+                          North Macedonia
+                        </SelectItem>
                         <SelectItem value="Norway">Norway</SelectItem>
                         <SelectItem value="Oman">Oman</SelectItem>
                         <SelectItem value="Pakistan">Pakistan</SelectItem>
                         <SelectItem value="Palau">Palau</SelectItem>
                         <SelectItem value="Palestine">Palestine</SelectItem>
                         <SelectItem value="Panama">Panama</SelectItem>
-                        <SelectItem value="Papua New Guinea">Papua New Guinea</SelectItem>
+                        <SelectItem value="Papua New Guinea">
+                          Papua New Guinea
+                        </SelectItem>
                         <SelectItem value="Paraguay">Paraguay</SelectItem>
                         <SelectItem value="Peru">Peru</SelectItem>
                         <SelectItem value="Philippines">Philippines</SelectItem>
@@ -267,25 +324,37 @@ const SignupForm = () => {
                         <SelectItem value="Romania">Romania</SelectItem>
                         <SelectItem value="Russia">Russia</SelectItem>
                         <SelectItem value="Rwanda">Rwanda</SelectItem>
-                        <SelectItem value="Saint Kitts and Nevis">Saint Kitts and Nevis</SelectItem>
+                        <SelectItem value="Saint Kitts and Nevis">
+                          Saint Kitts and Nevis
+                        </SelectItem>
                         <SelectItem value="Saint Lucia">Saint Lucia</SelectItem>
                         <SelectItem value="Saint Vincent and the Grenadines">
                           Saint Vincent and the Grenadines
                         </SelectItem>
                         <SelectItem value="Samoa">Samoa</SelectItem>
                         <SelectItem value="San Marino">San Marino</SelectItem>
-                        <SelectItem value="Sao Tome and Principe">Sao Tome and Principe</SelectItem>
-                        <SelectItem value="Saudi Arabia">Saudi Arabia</SelectItem>
+                        <SelectItem value="Sao Tome and Principe">
+                          Sao Tome and Principe
+                        </SelectItem>
+                        <SelectItem value="Saudi Arabia">
+                          Saudi Arabia
+                        </SelectItem>
                         <SelectItem value="Senegal">Senegal</SelectItem>
                         <SelectItem value="Serbia">Serbia</SelectItem>
                         <SelectItem value="Seychelles">Seychelles</SelectItem>
-                        <SelectItem value="Sierra Leone">Sierra Leone</SelectItem>
+                        <SelectItem value="Sierra Leone">
+                          Sierra Leone
+                        </SelectItem>
                         <SelectItem value="Singapore">Singapore</SelectItem>
                         <SelectItem value="Slovakia">Slovakia</SelectItem>
                         <SelectItem value="Slovenia">Slovenia</SelectItem>
-                        <SelectItem value="Solomon Islands">Solomon Islands</SelectItem>
+                        <SelectItem value="Solomon Islands">
+                          Solomon Islands
+                        </SelectItem>
                         <SelectItem value="Somalia">Somalia</SelectItem>
-                        <SelectItem value="South Africa">South Africa</SelectItem>
+                        <SelectItem value="South Africa">
+                          South Africa
+                        </SelectItem>
                         <SelectItem value="South Korea">South Korea</SelectItem>
                         <SelectItem value="South Sudan">South Sudan</SelectItem>
                         <SelectItem value="Spain">Spain</SelectItem>
@@ -302,20 +371,32 @@ const SignupForm = () => {
                         <SelectItem value="Timor-Leste">Timor-Leste</SelectItem>
                         <SelectItem value="Togo">Togo</SelectItem>
                         <SelectItem value="Tonga">Tonga</SelectItem>
-                        <SelectItem value="Trinidad and Tobago">Trinidad and Tobago</SelectItem>
+                        <SelectItem value="Trinidad and Tobago">
+                          Trinidad and Tobago
+                        </SelectItem>
                         <SelectItem value="Tunisia">Tunisia</SelectItem>
                         <SelectItem value="Turkey">Turkey</SelectItem>
-                        <SelectItem value="Turkmenistan">Turkmenistan</SelectItem>
+                        <SelectItem value="Turkmenistan">
+                          Turkmenistan
+                        </SelectItem>
                         <SelectItem value="Tuvalu">Tuvalu</SelectItem>
                         <SelectItem value="Uganda">Uganda</SelectItem>
                         <SelectItem value="Ukraine">Ukraine</SelectItem>
-                        <SelectItem value="United Arab Emirates">United Arab Emirates</SelectItem>
-                        <SelectItem value="United Kingdom">United Kingdom</SelectItem>
-                        <SelectItem value="United States">United States</SelectItem>
+                        <SelectItem value="United Arab Emirates">
+                          United Arab Emirates
+                        </SelectItem>
+                        <SelectItem value="United Kingdom">
+                          United Kingdom
+                        </SelectItem>
+                        <SelectItem value="United States">
+                          United States
+                        </SelectItem>
                         <SelectItem value="Uruguay">Uruguay</SelectItem>
                         <SelectItem value="Uzbekistan">Uzbekistan</SelectItem>
                         <SelectItem value="Vanuatu">Vanuatu</SelectItem>
-                        <SelectItem value="Vatican City">Vatican City</SelectItem>
+                        <SelectItem value="Vatican City">
+                          Vatican City
+                        </SelectItem>
                         <SelectItem value="Venezuela">Venezuela</SelectItem>
                         <SelectItem value="Vietnam">Vietnam</SelectItem>
                         <SelectItem value="Yemen">Yemen</SelectItem>
@@ -335,7 +416,11 @@ const SignupForm = () => {
                   <FormItem className="form-item">
                     <FormLabel className="form-label">Avatar</FormLabel>
                     <FormControl className="form-control">
-                      <Input type="file" accept="image/*" onChange={(e) => field.onChange(e.target.files[0])} />
+                      <Input
+                        type="file"
+                        accept="image/*"
+                        onChange={(e) => field.onChange(e.target.files[0])}
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -353,15 +438,21 @@ const SignupForm = () => {
         <CardFooter className="text-center flex flex-col items-center space-y-2">
           <p className="text-md text-gray-700">
             Already have an account ?{" "}
-            <a href="/login" className="font-bold text-blue-500 hover:underline">
+            <a
+              href="/login"
+              className="font-bold text-blue-500 hover:underline"
+            >
               Login
             </a>
           </p>
-          <p className="text-sm text-muted-foreground">By signing up, you agree to our terms and conditions.</p>
+          <p className="text-sm text-muted-foreground">
+            By signing up, you agree to our terms and conditions.
+          </p>
         </CardFooter>
       </Card>
     </div>
-  )
-}
+  );
+};
 
-export default SignupForm
+export default SignupForm;
+
