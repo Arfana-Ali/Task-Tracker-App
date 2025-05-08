@@ -69,11 +69,18 @@ const LoginForm = () => {
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <Card className="w-full max-w-md shadow-lg">
-        <CardHeader>
+{/*         <CardHeader>
 {/*           <CardTitle className="text-2xl text-center text-gray-800"> */}
-          <CardTitle className={`${theme === "dark" ? "text-2xl text-center text-white" : "text-2xl text-center text-gray-800"}`}>
+{/*           <CardTitle className={`${theme === "dark" ? "text-2xl text-center text-white" : "text-2xl text-center text-gray-800"}`}>
 
             Log In
+          </CardTitle>
+        </CardHeader> */} */}
+     <CardHeader>
+          <CardTitle
+            className={`${theme === "dark" ? "text-center text-white text-2xl font-bold" : "text-center text-primary-gradient text-2xl font-bold"}`}
+          >
+         Login
           </CardTitle>
         </CardHeader>
         <CardContent>
