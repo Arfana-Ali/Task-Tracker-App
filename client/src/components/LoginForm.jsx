@@ -68,6 +68,7 @@ const LoginForm = () => {
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
+      Task Management System
       <Card className="w-full max-w-md shadow-lg">
 {/*         <CardHeader>
 {/*           <CardTitle className="text-2xl text-center text-gray-800"> */}
@@ -75,7 +76,7 @@ const LoginForm = () => {
 
             Log In
           </CardTitle>
-        </CardHeader> */} */}
+        </CardHeader> */} 
      <CardHeader>
           <CardTitle
             className={`${theme === "dark" ? "text-center text-white text-2xl font-bold" : "text-center text-primary-gradient text-2xl font-bold"}`}
